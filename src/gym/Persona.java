@@ -1,5 +1,10 @@
 package gym;
 
+/**
+ * La clase abstracta Persona representa a una personadel gimnasio.
+ * @author alemolina
+ * 
+ */
  abstract class Persona {
 	
 	
@@ -9,6 +14,14 @@ package gym;
 	protected String direccion;
 	protected int numero_telefono;
 	
+	  /**
+     * Constructor de la clase Persona.
+     * @param nombre El nombre de la persona.
+     * @param dni El DNI de la persona.
+     * @param apellidos Los apellidos de la persona.
+     * @param direccion La dirección de la persona.
+     * @param numero_telefono El número de teléfono de la persona.
+     */
 	
 	public Persona(String nombre, String dni, String apellidos, String direccion, int numero_telefono) {
 		super();
@@ -59,6 +72,11 @@ package gym;
 		return "Persona [nombre=" + nombre + ", dni=" + dni + ", apellidos=" + apellidos + ", direccion=" + direccion
 				+ ", numero_telefono=" + numero_telefono + "]";
 	}
+	
+	/**
+     * Método abstracto que debe ser implementado por las subclases para crear una persona.
+     * @param personass Un arreglo de personas donde se almacenarán las nuevas personas creadas.
+     */
 	public abstract void crearpersona(Persona[] personass);
 		
 	

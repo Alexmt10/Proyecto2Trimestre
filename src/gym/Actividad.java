@@ -2,16 +2,29 @@ package gym;
 
 import java.util.Scanner;
 
+/**
+ * La clase Actividad es una clase abstracta que representa una actividad dentro del gimnasio.
+ * Contiene métodos estáticos para elegir y realizar diferentes tipos de actividades.
+ */
+
 public abstract class Actividad {
 	protected String nombre;
 	protected double duracion;
 
+	
+	
 	public Actividad(String nombre, double duracion) {
 
 		this.nombre = nombre;
 		this.duracion = duracion;
 	}
 
+	
+	 /**
+     * Método estático para permitir al usuario elegir una actividad a realizar.
+     * Muestra un menú de opciones y llama a los métodos correspondientes según la selección del usuario.
+     * @param personass Arreglo de personas disponibles en el gimnasio.
+     */
 	public static void elegirActividad(Persona[] personass) {
 		Scanner scanner = new Scanner(System.in);
 		int opcionactividad;
@@ -28,13 +41,19 @@ public abstract class Actividad {
                     break;
                 case 3:
                     System.out.println("Saliendo del programa...");
-                    return; // Salir del método si el usuario elige salir
+                    return; 
                 default:
                     System.out.println("Opción incorrecta. Por favor, selecciona una opción válida.");
                     break;
             }
-        } while (true); // Bucle infinito, el usuario decide cuándo salir explícitamente
+        } while (true); 
     }
+	
+	/**
+     * Método estático para realizar una actividad de cardio.
+     * Permite al usuario elegir el tipo de actividad de cardio y asigna un monitor si está disponible.
+     * @param personass Arreglo de personas disponibles en el gimnasio.
+     */
 	 private static void realizarActividadCardio(Persona[] personass) {
 		 Scanner scanner = new Scanner(System.in);
 				System.out.println("Que actividad de cardio quieres realizar: BODYPAM, FUNCIONAL, BOXEO, OVERUP");
@@ -129,6 +148,13 @@ public abstract class Actividad {
 				}
 			}
 
+	 
+	 /**
+	     * Método estático para realizar levantamiento de pesas.
+	     * Permite al usuario elegir el cliente y el ejercicio de levantamiento de pesas, calcula el peso máximo,
+	     * verifica si el cliente puede realizar el ejercicio y ajusta su estamina en consecuencia.
+	     * @param personass Arreglo de personas disponibles en el gimnasio.
+	     */
 	 private static void realizarLevantamientoPesas(Persona[] personass) {
 		 Scanner scanner = new Scanner(System.in);
 				System.out.println("¿Qué cliente deseas asignar a la actividad de levantamiento de pesas?");
@@ -224,7 +250,11 @@ public abstract class Actividad {
 			} 
 		
 	
-
+	 /**
+	     * Método estático que calcula la duración de una actividad de cardio según el tipo de actividad.
+	     * @param tipo Tipo de actividad de cardio.
+	     * @return La duración de la actividad en minutos.
+	     */
 	public static double tiempo(Tipo tipo) {
 		switch (tipo) {
 		case BOXEO:

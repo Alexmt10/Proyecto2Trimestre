@@ -2,10 +2,26 @@ package gym;
 
 import java.util.Scanner;
 
+/**
+ * La clase Monitor representa a un monitor del gimnasio.
+ * Extiende la clase Persona e incluye atributos y métodos específicos para los monitores, como el tipo de especialidad.
+ */
+
 public class Monitor extends Persona {
 
 	protected Tipo tipo;
 
+	
+
+    /**
+     * Constructor de la clase Monitor.
+     * @param nombre El nombre del monitor.
+     * @param dni El DNI del monitor.
+     * @param apellidos Los apellidos del monitor.
+     * @param direccion La dirección del monitor.
+     * @param numero_telefono El número de teléfono del monitor.
+     * @param tipo El tipo de especialidad del monitor.
+     */
 	public Monitor(String nombre, String dni, String apellidos, String direccion, int numero_telefono, Tipo tipo) {
 		super(nombre, dni, apellidos, direccion, numero_telefono);
 		this.tipo = tipo;
@@ -27,6 +43,12 @@ public class Monitor extends Persona {
 				+ ", direccion=" + direccion + ", numero_telefono=" + numero_telefono +"Monitor [tipo=" + tipo +  "]";
 	}
 
+	
+	 /**
+     * Método que permite crear un nuevo monitor y agregarlo a personas.
+     * Solicita al usuario que ingrese los datos del nuevo monitor y luego lo añade al arreglo.
+     * @param personass Un array de personas donde se almacenarán los nuevos monitores creados.
+     */
 	@Override
 	public void crearpersona(Persona[] personass) {
 

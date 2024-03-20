@@ -2,11 +2,25 @@ package gym;
 
 import java.util.Scanner;
 
+/**
+ * La clase Cliente representa a un cliente del gimnasio.
+ * Extiende la clase Persona e incluye atributos y métodos específicos para los clientes, como el bono y la estamina.
+ */
 public class Cliente extends Persona {
 
 	protected String bono;
 	protected int stamina;
 
+	
+	 /**
+     * Constructor de la clase Cliente.
+     * @param nombre El nombre del cliente.
+     * @param dni El DNI del cliente.
+     * @param apellidos Los apellidos del cliente.
+     * @param direccion La dirección del cliente.
+     * @param numero_telefono El número de teléfono del cliente.
+     * @param bono El bono del cliente.
+     */
 	public Cliente(String nombre, String dni, String apellidos, String direccion, int numero_telefono, String bono) {
 		super(nombre, dni, apellidos, direccion, numero_telefono);
 		this.bono = bono;
@@ -35,6 +49,13 @@ public class Cliente extends Persona {
 		return "nombre=" + nombre + ", dni=" + dni + ", apellidos="
 				+ apellidos + ", direccion=" + direccion + ", numero_telefono=" + numero_telefono +"Cliente [bono=" + bono + ", stamina=" + stamina +  "]";
 	}
+	
+	
+	  /**
+     * Método que permite crear un nuevo cliente y agregarlo al arreglo de personas.
+     * Solicita al usuario que ingrese los datos del nuevo cliente y luego lo añade.
+     * @param personass Un array de personas donde se almacenarán los nuevos clientes creados.
+     */
 
 	@Override
 	public void crearpersona(Persona[] personass) {

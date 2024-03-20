@@ -2,8 +2,20 @@ package gym;
 
 import java.util.Scanner;
 
+
+/**
+ * La clase Main contiene el método principal que ejecuta el programa principal del gimnasio.
+ * Permite al usuario interactuar con el sistema realizando diversas operaciones.
+ * @author alemolina
+ */
 public class Main {
+	
+	/**
+     * El método principal que inicia el programa.
+     * @param args Los argumentos de la línea de comandos (no se utilizan en este programa).
+     */
 	public static void main(String[] args) {
+		
 		var sc = new Scanner(System.in);
 
 		Persona[] listapersonas = new Persona[100];
@@ -59,6 +71,10 @@ public class Main {
 
 	}
 
+	  /**
+     * Método para listar los clientes.
+     * @param listapersonas El arreglo de personas que contiene los clientes.
+     */
 	public static void listarclientes(Persona[] listapersonas) {
 
 		System.out.println("\nClientes:");
@@ -70,6 +86,10 @@ public class Main {
 		}
 	}
 
+	/**
+     * Método para listar los monitores.
+     * @param listapersonas El arreglo de personas que contiene los monitores.
+     */
 	public static void listarmonitores(Persona[] listapersonas) {
 		System.out.println("Monitores:");
 		for (Persona p : listapersonas) {
@@ -81,6 +101,10 @@ public class Main {
 		}
 	}
 
+	 /**
+     * Método para eliminar un cliente del arreglo de personas.
+     * @param listaPersonas El arreglo de personas.
+     */
 	public static void eliminarCliente(Persona[] listaPersonas) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Pon el nombre cel cliente que deseas eliminar");
@@ -95,6 +119,10 @@ public class Main {
 		System.out.println("Cliente no encontrado.");
 	}
 
+	  /**
+     * Método para eliminar un monitor del arreglo de personas.
+     * @param listaPersonas El arreglo de personas.
+     */
 	public static void eliminarEmpleado(Persona[] listaPersonas) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Pon el nombre cel empleado que deseas eliminar");
