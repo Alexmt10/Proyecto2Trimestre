@@ -8,12 +8,12 @@ import java.util.Scanner;
  */
 public class Cliente extends Persona {
 
-	protected String bono;
+	protected Bono bono;
 	protected int stamina;
 
 	
 	 /**
-     * Constructor de la clase Cliente.
+     * Constructor de la clase Cliente dependiendo del bono tendras mas o menos estamina.
      * @param nombre El nombre del cliente.
      * @param dni El DNI del cliente.
      * @param apellidos Los apellidos del cliente.
@@ -21,17 +21,33 @@ public class Cliente extends Persona {
      * @param numero_telefono El número de teléfono del cliente.
      * @param bono El bono del cliente.
      */
-	public Cliente(String nombre, String dni, String apellidos, String direccion, int numero_telefono, String bono) {
+	public Cliente(String nombre, String dni, String apellidos, String direccion, int numero_telefono, Bono bono) {
 		super(nombre, dni, apellidos, direccion, numero_telefono);
+		switch (bono) {
+        case ORO:
+            this.stamina = 30;
+            break;
+        case PLATA:
+            this.stamina = 25;
+            break;
+        case BRONCE:
+            this.stamina = 20;
+            break;
+        default:
+            System.out.println("Bono no válido. Se asignará BRONCE por defecto.");
+            this.stamina = 20;
+            
+            
+	}
 		this.bono = bono;
-		this.stamina = 20;
 	}
 
-	public String getBono() {
+
+	public Bono getBono() {
 		return bono;
 	}
 
-	public void setBono(String bono) {
+	public void setBono(Bono bono) {
 		this.bono = bono;
 	}
 
@@ -44,14 +60,13 @@ public class Cliente extends Persona {
 	}
 
 	
-	@Override
+	
+	  @Override
 	public String toString() {
-		return "nombre=" + nombre + ", dni=" + dni + ", apellidos="
-				+ apellidos + ", direccion=" + direccion + ", numero_telefono=" + numero_telefono +"Cliente [bono=" + bono + ", stamina=" + stamina +  "]";
+		return "Cliente [bono=" + bono + ", stamina=" + stamina + ", nombre=" + nombre + ", dni=" + dni + ", apellidos="
+				+ apellidos + ", direccion=" + direccion + ", numero_telefono=" + numero_telefono + "]";
 	}
-	
-	
-	  /**
+	/**
      * Método que permite crear un nuevo cliente y agregarlo al arreglo de personas.
      * Solicita al usuario que ingrese los datos del nuevo cliente y luego lo añade.
      * @param personass Un array de personas donde se almacenarán los nuevos clientes creados.
@@ -73,7 +88,22 @@ public class Cliente extends Persona {
 		int numeroTelefonoCliente = scanner.nextInt();
 		scanner.nextLine();
 		System.out.print("Ingrese el bono del cliente: ");
-		String bonoCliente = scanner.nextLine();
+		String bonoClienteStr = scanner.nextLine().toUpperCase(); 
+        Bono bonoCliente;
+        switch (bonoClienteStr) {
+        case "ORO":
+            bonoCliente = Bono.ORO;
+            break;
+        case "PLATA":
+            bonoCliente = Bono.PLATA;
+            break;
+        case "BRONCE":
+            bonoCliente = Bono.BRONCE;
+            break;
+        default:
+            System.out.println("Bono no válido. Se asignará BRONCE por defecto.");
+            bonoCliente = Bono.BRONCE;
+    }
 		Persona nuevocliente = new Cliente(nombreCliente, dniCliente, apellidosCliente, direccionCliente,
 				numeroTelefonoCliente, bonoCliente);
 

@@ -20,8 +20,8 @@ public class Main {
 
 		Persona[] listapersonas = new Persona[100];
 
-		listapersonas[0] = new Cliente("juan", "123456789", "perez", "123 Street", 123456789, "Gold");
-		listapersonas[1] = new Cliente("pedro", "987654321", "molina", "456 Avenue", 987654321, "Silver");
+		listapersonas[0] = new Cliente("juan", "123456789", "perez", "123 Street", 123456789,Bono.ORO);
+		listapersonas[1] = new Cliente("pedro", "987654321", "molina", "456 Avenue", 987654321, Bono.PLATA);
 		listapersonas[2] = new Monitor("maria", "123456789", "Sanchez", "123 Street", 123456789, Tipo.FUNCIONAL);
 		listapersonas[3] = new Monitor("hugo", "987654321", "Escudero", "456 Avenue", 987654321, Tipo.BOXEO);
 		int opcion;
@@ -80,7 +80,6 @@ public class Main {
 		System.out.println("\nClientes:");
 		for (Persona p : listapersonas) {
 			if (p instanceof Cliente) {
-				System.out.println("Nombre: " + p.getNombre() + "estamina " + ((Cliente) p).getStamina() + ", Bono: "+ ((Cliente) p).getBono());
 				System.out.println(p.toString());
 			}
 		}
@@ -94,7 +93,6 @@ public class Main {
 		System.out.println("Monitores:");
 		for (Persona p : listapersonas) {
 			if (p instanceof Monitor) {
-				System.out.println("Nombre: " + p.getNombre() + "Especialidad: " + ((Monitor) p).tipo);
 				System.out.println(p.toString());
 			}
 

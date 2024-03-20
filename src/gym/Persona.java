@@ -67,12 +67,14 @@ package gym;
 	
 	
 	
+	
+	
+	
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", dni=" + dni + ", apellidos=" + apellidos + ", direccion=" + direccion
 				+ ", numero_telefono=" + numero_telefono + "]";
 	}
-	
 	/**
      * Método abstracto que debe ser implementado por las subclases para crear una persona.
      * @param personass Un arreglo de personas donde se almacenarán las nuevas personas creadas.
